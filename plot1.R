@@ -23,10 +23,10 @@ yAxisLabel <- "Frequency"
 barColor <- "red"
 
 # Generate graph
-hist(workingTable$Global_active_power, main = chartTitle, xlab = xAxisLabel, ylab = yAxisLabel, breaks = 12, ylim = c(0, 1200), xlim = c(0, 6), col = barColor, axes = TRUE)
+hist(workingTable$Global_active_power, main = chartTitle, xlab = xAxisLabel, ylab = yAxisLabel, breaks = 12, xlim = c(0, 6), ylim = c(0, 1200), col = barColor, axes = TRUE)
 
 # Output to file
-dev.copy(png, file="plot1.png", width=480, height=480)
+dev.copy(png, file="plot1.png", width = 480, height = 480) 
 dev.off()
 
 }

@@ -9,10 +9,13 @@ plot1 <- function() {
 ## Date range 01-FEB-2007 to 02-FEB-2007 subsetted to file ./goodData.txt
 #
 ## Graph type is line
-## Output is .png format, 480 pixels x 480 pixelssetwd("/home/mark/R/Classwork-In-Progress/ExDat013/Project1/ExData_Plotting1")
+## Output is .png format, 480 pixels x 480 pixels
+
+setwd("/home/mark/R/Classwork-In-Progress/ExDat013/Project1/ExData_Plotting1")
 
 fileName <- "./goodData.txt"
 workingTable <- read.table(fileName, sep = ";", header = TRUE, na.strings = "?", comment.char = "")
+
 # combinedTimeAndDate <- paste(workingTable$Date, workingTable$Time)
 # DNW: workingTable$TimeAndDateCol <- paste(workingTable$Date, workingTable$Time)
 # DNW: workingTable$TimeAndDateCol2 = strptime(workingTable$TimeAndDateCol, format = "%d/%m/%y, %I:%M:%S" )
