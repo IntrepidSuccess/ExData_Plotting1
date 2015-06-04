@@ -138,7 +138,8 @@ png(file = "plot4.png",
       legend("topright",
              col = c(lineColor1, lineColor2, lineColor3),
              legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
-             lty = c(1,1))
+             bty = "n",
+             lty = c(1,1)
 
 
 # Add four plot. ####
