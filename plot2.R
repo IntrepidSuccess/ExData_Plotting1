@@ -15,12 +15,12 @@
 # Title = [none]
 
 # These value are defined here for use in the plotting call: ####
-xAxisLabel <- ""
-yAxisLabel <- "Global Active Power (kilowatts)"
-mainTitle <- "Global Active Power"
-barColor <- "red"
-plotHeight <- 480
-plotWidth <- 480
+      xAxisLabel <- ""
+      yAxisLabel <- "Global Active Power (kilowatts)"
+      mainTitle <- "Global Active Power"
+      barColor <- "red"
+      plotHeight <- 480
+      plotWidth <- 480
 
 # Get data ####
 # Not loving the absolute addressing, but I saved over my data loader function,
@@ -30,26 +30,34 @@ plotWidth <- 480
 
 # startDirectory <- dirname(sys.frame(1)$ofile) # may not need this in final func
 
-setwd("/home/mark/Dropbox/Classes/COUR_ExploringDataAnalysis/Project1/ExData_Plotting1/")
+      setwd("/home/mark/Dropbox/Classes/COUR_ExploringDataAnalysis/Project1/ExData_Plotting1/")
 
-masterDataFile <- "../class_files/household_power_consumption.txt"
+      masterDataFile <- "../class_files/household_power_consumption.txt"
 
 # Read master data set and process ####
-bigRead <- read.table(masterDataFile, sep = ";", header = TRUE, stringsAsFactors = FALSE, , na.strings = "?")
+      bigRead <- read.table(masterDataFile,
+                            sep = ";",
+                            header = TRUE,
+                            stringsAsFactors = FALSE, ,
+                            na.strings = "?")
 
 # Subset the target data
-chosenData <- rbind(bigRead[bigRead$Date == "1/2/2007", ], bigRead[bigRead$Date == "2/2/2007", ])
+      chosenData <- rbind(bigRead[bigRead$Date == "1/2/2007", ],
+                          bigRead[bigRead$Date == "2/2/2007", ])
 
 # Recover the memory for the massive dataset
-rm(bigRead)
+      rm(bigRead)
 
 # Retype data columns of chosenData ####
 # Add POSIX time/date column for easy sorting without having to retype $Date and
 # $Time
 
-tempDateTime <- paste(chosenData$Date, chosenData$Time)
-processedDateTime <- as.POSIXct(tempDateTime, format="%d/%m/%Y %H:%M:%S")
-chosenData <- cbind(processedDateTime, chosenData)
+      tempDateTime <- paste(chosenData$Date,
+                            chosenData$Time)
+      processedDateTime <- as.POSIXct(tempDateTime,
+                                      format="%d/%m/%Y %H:%M:%S")
+      chosenData <- cbind(processedDateTime,
+                          chosenData)
 
 # Retype data columns Global_Active_Power to sub_metering_3 (i.e. the
 # last 7 columns) as numeric
@@ -60,13 +68,10 @@ for(index in 4:10) {
 
 # Layout plot using layout notes describes at the start of the program comments ####
 
-# Optional code to display to screen device first for quality control:
-# plot(chosenData$processedDateTime, chosenData$Global_active_power, type="l", xlab = xAxisLabel, ylab = yAxisLabel)
-
-# Then write to graphic device for output - in this case, .png
-png(file = "plot2.png", width = 480, height = 480)
-      plot(chosenData$processedDateTime, chosenData$Global_active_power,
-           type="l",
-           xlab = xAxisLabel,
-           ylab = yAxisLabel)
-dev.off()
+# Write to graphic device for output - in this case, .png
+      png(file = "plot2.png", width = 480, height = 480)
+            plot(chosenData$processedDateTime, chosenData$Global_active_power,
+                 type="l",
+                 xlab = xAxisLabel,
+                 ylab = yAxisLabel)
+      dev.off()

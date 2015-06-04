@@ -3,6 +3,13 @@
 # Course Project #1
 # Due: Sun 7 Jun 6:30 pm CST
 
+##################################################################
+## THIS IS A WORK IN PROGRESS TO ABSTRACT THE DATA SET EXTRACTION
+## FOR THIS ASSIGNMENT. IT IS NOT A REQUIRED OR EVEN OPTIONAL
+## PART OF THE ASSIGNMENT. PLEASE IGNORE. IT IS FOR MY OWN
+## LEARNING EXPERIENCE. GOOD LUCK!
+##################################################################
+
 # Local copy of instructions available in ./Instructions.R and at ####
 # https://class.coursera.org/exdata-015/human_grading/view/courses/
 #   973509/assessments/3/submissions

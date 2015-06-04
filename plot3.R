@@ -26,33 +26,38 @@ plotWidth <- 480
 
 
 # Get data ####
-# Not loving the absolute addressing, but I saved over my data loader function,
-# so I had to use this as the short-term (but workable) fix for my system.
-# Obviously, to work on another system, the working directory would have to be
-# appropriately renamed =(
+# Again, not loving the absolute addressing I'm using this as the short-term
+# (but workable) fix for my system. Obviously, to work on another system, the
+# working directory would have to be appropriately renamed =(
 
-# startDirectory <- dirname(sys.frame(1)$ofile) # may not need this in final func
+      setwd("/home/mark/Dropbox/Classes/COUR_ExploringDataAnalysis/Project1/ExData_Plotting1/")
 
-setwd("/home/mark/Dropbox/Classes/COUR_ExploringDataAnalysis/Project1/ExData_Plotting1/")
-
-masterDataFile <- "../class_files/household_power_consumption.txt"
+      masterDataFile <- "../class_files/household_power_consumption.txt"
 
 # Read master data set and process ####
-bigRead <- read.table(masterDataFile, sep = ";", header = TRUE, stringsAsFactors = FALSE, , na.strings = "?")
+      bigRead <- read.table(masterDataFile,
+                            sep = ";",
+                            header = TRUE,
+                            stringsAsFactors = FALSE,
+                            na.strings = "?")
 
 # Subset the target data
-chosenData <- rbind(bigRead[bigRead$Date == "1/2/2007", ], bigRead[bigRead$Date == "2/2/2007", ])
+      chosenData <- rbind(bigRead[bigRead$Date == "1/2/2007", ],
+                          bigRead[bigRead$Date == "2/2/2007", ])
 
 # Recover the memory for the massive dataset
-rm(bigRead)
+      rm(bigRead)
 
 # Retype data columns of chosenData ####
 # Add POSIX time/date column for easy sorting without having to retype $Date and
 # $Time
 
-tempDateTime <- paste(chosenData$Date, chosenData$Time)
-processedDateTime <- as.POSIXct(tempDateTime, format="%d/%m/%Y %H:%M:%S")
-chosenData <- cbind(processedDateTime, chosenData)
+      tempDateTime <- paste(chosenData$Date,
+                            chosenData$Time)
+      processedDateTime <- as.POSIXct(tempDateTime,
+                                      format="%d/%m/%Y %H:%M:%S")
+      chosenData <- cbind(processedDateTime,
+                          chosenData)
 
 # Retype data columns Global_Active_Power to sub_metering_3 (i.e. the
 # last 7 columns) as numeric
@@ -97,4 +102,4 @@ png(file = "plot3.png", width = 480, height = 480)
              legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
              lty = c(1,1))
 
-dev.off()
+dev.off() # End of plotting for plot3
