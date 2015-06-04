@@ -15,14 +15,14 @@
 # Title = [none]
 
 # These value are defined here for use in the plotting call: ####
-xAxisLabel <- ""
-yAxisLabel <- "Energy sub metering"
-mainTitle <- ""
-lineColor1 <- "black"
-lineColor2 <- "red"
-lineColor3 <- "blue"
-plotHeight <- 480
-plotWidth <- 480
+      xAxisLabel <- ""
+      yAxisLabel <- "Energy sub metering"
+      mainTitle <- ""
+      lineColor1 <- "black"
+      lineColor2 <- "red"
+      lineColor3 <- "blue"
+      plotHeight <- 480
+      plotWidth <- 480
 
 
 # Get data ####
